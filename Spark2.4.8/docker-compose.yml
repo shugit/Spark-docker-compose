@@ -21,16 +21,16 @@ services:
     environment:
       - SPARK_MASTER=spark://spark-master:7077
       - SPARK_WORKER_CORES=1
-      - SPARK_WORKER_MEMORY=1G
-      - SPARK_DRIVER_MEMORY=1G
-      - SPARK_EXECUTOR_MEMORY=1G
+      - SPARK_WORKER_MEMORY=4G
+      - SPARK_DRIVER_MEMORY=4G
+      - SPARK_EXECUTOR_MEMORY=4G
       - SPARK_WORKLOAD=worker
       - SPARK_LOCAL_IP=spark-worker-a
     volumes:
       - ./apps:/opt/spark-apps
       - ./data:/opt/spark-data
   spark-worker-b:
-    image: apache-spark:2.4.8
+    image: logn.work.spark:2.4.8
     ports:
       - "9092:8080"
       - "7001:7000"
@@ -39,9 +39,9 @@ services:
     environment:
       - SPARK_MASTER=spark://spark-master:7077
       - SPARK_WORKER_CORES=1
-      - SPARK_WORKER_MEMORY=1G
-      - SPARK_DRIVER_MEMORY=1G
-      - SPARK_EXECUTOR_MEMORY=1G
+      - SPARK_WORKER_MEMORY=4G
+      - SPARK_DRIVER_MEMORY=4G
+      - SPARK_EXECUTOR_MEMORY=4G
       - SPARK_WORKLOAD=worker
       - SPARK_LOCAL_IP=spark-worker-b
     volumes:
